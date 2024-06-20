@@ -5,8 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
-
-  constructor() {}
-
+export class HomePage { constructor() {}
 }

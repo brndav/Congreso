@@ -1,0 +1,60 @@
+
+ion-button.color1 { color: #adff2f;
+  border: 1px solid var(--border-color);
+  }
+  ion-button {
+  --background: #adff2f; color: #000000;
+  }
+  :root {
+  --border-color: #000;
+  }
+  .description1 {
+      text-align: center;
+      font-size: 38px;
+      margin: 40px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.imagenes {
+  width: 250px;
+  height: 250px;
+  display: block;
+  margin: 0 auto; /* Centra horizontalmente */
+  vertical-align: middle; /* Centra verticalmente */
+}
+.description {
+  text-align: justify;
+  font-size: 28px;   
+  margin: 40px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.cards{
+  font-family: "Montserrat", sans-serif;
+  font-size: 22px;
+  line-height: 1.5;
+  text-align: center;
+ 
+}
+.titulo1{
+  width: 100px;
+  height: 60px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  font-size: 22px;
+  line-height: 1.5;
+  font-family: "Montserrat", sans-serif;;
+} 
+.titulo{
+  width: 1650px;
+  height: 60px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#2471A3;
+  font-size: 26px;
+  line-height: 1.5;
+  font-family: "Montserrat", sans-serif;;
+} 

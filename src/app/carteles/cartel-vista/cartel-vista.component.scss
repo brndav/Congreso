@@ -1,0 +1,32 @@
+.titulo1{
+    width: 1400px;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 29px;
+    line-height: 1.5;
+    font-family: "Montserrat", sans-serif;
+    
+  } 
+  .titulo{
+    width: 1650px;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#2471A3;
+    font-size: 24px;
+    line-height: 1.5;
+    font-family: "Montserrat", sans-serif;
+    font-style: italic;
+  }
+  .text-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Para que la imagen ocupe toda la altura del contenedor */
+   
+  }

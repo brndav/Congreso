@@ -1,0 +1,13 @@
+<select [(ngModel)]="opcionSeleccionado" (change)="capturar()">
+
+  <option value="0" selected>Seleccione una institución</option>
+
+  <option *ngFor="let i of instituciones" [value]="i.id_institucion">
+
+    {{ i.nombreinst }}
+
+  </option>
+
+</select>
+
+<p [hidden]="opcionSeleccionado == '0'">Haz seleccionado la opción  (ID: {{ opcionSeleccionado }})</p>

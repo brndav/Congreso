@@ -1,0 +1,180 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<form [formGroup]="loginForm" >
+  
+
+
+    <ion-item>
+      <ion-label position="floating">Titulo de la ponencia<ion-text color="danger">*</ion-text></ion-label>
+      <ion-input type="text" placeholder="" formControlName="titulo"></ion-input>
+    </ion-item>
+    <div class="d-flex align-items-center mb-2">
+      <label for="actionButton" class="text me label-lg"><strong>Agregar autores</strong></label>
+        <button id="actionButton" class="btn btn-lg btn-floating text-white custom-btn" style="background-color:  #2471a3 ;" type="button" >
+          <i class="fas fa-plus"></i> <!-- Ícono de Font Awesome para el signo de más -->
+        </button>
+      </div>
+      <table class="table table-hover">
+        <thead>              
+          <tr>              
+            <th scope="col" class="table-font-size">Nombre</th>              
+            <th scope="col" class="table-font-size">Apelllido P</th>              
+            <th scope="col" class="table-font-size">Apellido M</th>              
+            <th scope="col" class="table-font-size">Correo</th>                   
+            <th scope="col" class="table-font-size" class="text-nowrap"></th>              
+          </tr>              
+        </thead>              
+        <tbody>              
+          <tr class="table-primary">              
+            <td class="table-font-size text-nowrap">Column content</td>              
+            <td class="table-font-size text-nowrap">Column content</td>              
+            <td class="table-font-size text-nowrap">Column content</td>              
+            <td class="table-font-size text-nowrap">Column content</td>             
+            <td class="table-font-size text-nowrap">              
+                <button type="button" class="btn btn-primary"
+                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+          Editar
+        </button>              
+        <button type="button" class="btn btn-primary ms-2"
+        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; ">
+    Eliminar
+    </button>              
+          </tr>              
+        </tbody>              
+      </table>
+    <legend class="text col-sm-6 texts">Seleccione la forma de presentación:</legend>
+    <div class="form-check">
+      <input
+        class="form-check-input checkbox-input"
+        type="checkbox"
+        (change)="onCheckboxChange(0, $event)"
+        [checked]="checkboxesSelected[0]"
+        [disabled]="disableAllCheckboxes && !checkboxesSelected[0]"
+        id="checkbox1"
+      />
+      <label class="form-check-label checkbox-label" for="checkbox1">Presentación oral</label>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input checkbox-input"
+        type="checkbox"
+        (change)="onCheckboxChange(1, $event)"
+        [checked]="checkboxesSelected[1]"
+        [disabled]="disableAllCheckboxes && !checkboxesSelected[1]"
+        id="checkbox2"
+      />
+      <label class="form-check-label checkbox-label" for="checkbox2">Presentación poster</label>
+    </div>
+    <legend class="text col-sm-6 pt-0 texts">Seleccione la forma de exponer:</legend>
+    <div class="form-check">
+      <input
+        class="form-check-input checkbox-input"
+        type="checkbox"
+        (change)="onCheckboxChange(2, $event)"
+        [checked]="checkboxesSelected[2]"
+        [disabled]="disableAllCheckboxes && !checkboxesSelected[2]"
+        id="checkbox3"
+      />
+      <label class="form-check-label checkbox-label" for="checkbox3">Exposición virtual</label>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input checkbox-input"
+        type="checkbox"
+        (change)="onCheckboxChange(3, $event)"
+        [checked]="checkboxesSelected[3]"
+        [disabled]="disableAllCheckboxes && !checkboxesSelected[3]"
+        id="checkbox4"
+      />
+      <label class="form-check-label checkbox-label" for="checkbox4">Exposición presencial</label>
+    </div>
+    <div class="mb-3">
+      <legend class="text col-sm-2 pt-0">Resumen:</legend>
+      <textarea class="form-control custom-textarea" placeholder="(220 palabras)" rows="3" formControlName="resumen"></textarea>
+    </div>
+    <div class="mb-3">
+      <legend class="text col-sm-2 pt-0">Abstract:</legend>
+      <textarea class="form-control custom-textarea" placeholder="(220 palabras)" rows="3" formControlName="abstract"></textarea>
+    </div>
+    <div class="mb-3">
+      <legend class="text col-sm-3 pt-0">Reseña Curricular:</legend>
+      <textarea class="form-control custom-textarea" placeholder="(220 palabras)" rows="3" formControlName="resenaCurricular"></textarea>
+    </div>
+     <div class="custom-select-container" (click)="toggleOptions()">
+      <div class="custom-select">{{ selectedOption || 'Área temática' }}</div>
+      <div class="custom-options" *ngIf="optionsVisible">
+        <div
+          class="custom-option"
+          *ngFor="let option of options"
+          (click)="selectOption(option)"
+          (mouseover)="showPopover(option)"
+          (mouseout)="hidePopover()"
+        >
+          {{ option.label }}
+          <div class="popover" *ngIf="option.showPopover">{{ option.description }}</div>
+        </div>
+      </div>
+    </div>
+    <legend class="text col-sm-2 pt-0">Subir foto:</legend>
+    <div class="input-group mb-3">
+      <input type="file" class="form-control" id="inputGroupFile02" />
+      <label class="input-group-text" for="inputGroupFile02">Upload</label>
+      <ion-button block color="primary" (click)="getOpciones()" type="submit" >
+        Login
+      </ion-button>
+    </div>
+  </form>
+
+ 
+  <form [formGroup]="loginForm" class="accordion accordion-borderless" id="accordionFlushExampleX" >
+    
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingOneX">
+        <button
+          class="accordion-button"
+          [ngClass]="{ 'collapsed': !isAccordionOpen[1] }"
+          type="button"
+          (click)="toggleAccordion(1)"
+          [attr.aria-expanded]="isAccordionOpen[1] ? 'true' : 'false'"
+          aria-controls="flush-collapseOneX"
+        >
+          Dirección de Adscripción
+        </button>
+      </h2>
+      <div
+        id="flush-collapseOneX"
+        class="accordion-collapse collapse"
+        [ngClass]="{ show: isAccordionOpen[1] }"
+        aria-labelledby="flush-headingOneX"
+        data-mdb-parent="#accordionFlushExampleX"
+      > 
+       
+          <ion-item>
+            <ion-label position="floating">Dirección <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input type="text" placeholder=""></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Codigo Postal <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input type="text" placeholder=""></ion-input>
+          </ion-item>
+          <div class="ion-items-container">
+            <ion-item>
+              <ion-label position="floating">País <ion-text color="danger">*</ion-text></ion-label>
+              <ion-input type="text" placeholder=""></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Estado <ion-text color="danger">*</ion-text></ion-label>
+              <ion-input type="text" placeholder=""></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Municipio <ion-text color="danger">*</ion-text></ion-label>
+              <ion-input type="text" placeholder=""></ion-input>
+            </ion-item>
+          </div>
+        </div>
+      </div>     
+      
+  
+</form>
+  

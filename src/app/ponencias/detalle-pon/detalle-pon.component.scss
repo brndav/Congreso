@@ -1,0 +1,65 @@
+.titulo1{
+    width: 100px;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    line-height: 1.5;
+    font-family: "Montserrat", sans-serif;;
+  } 
+  .titulo{
+    width: 1650px;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#2471A3;
+    font-size: 26px;
+    line-height: 1.5;
+    font-family: "Montserrat", sans-serif;;
+  } 
+  .alert{
+    width: 1650px;
+    height:500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#EAEDED;
+    font-size: 22px;
+    line-height: 1.5;
+    font-family: "Montserrat", sans-serif;
+  }
+    
+    .horario{
+      width: 400px;
+      height:150px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color:#FDFEFE ;
+      font-size: 22px;
+      line-height: 1.5;
+      font-family: "Montserrat", sans-serif;
+      border: 10px solid rgb(36	113	163);
+      border-radius: 20px;
+    }
+    .mapa{
+      overflow:hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      position: static;
+    }
+    
+    #img{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
