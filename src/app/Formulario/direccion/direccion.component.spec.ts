@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { RTallerComponent } from './r-taller.component';
+import { DireccionComponent } from './direccion.component';
 
-describe('RTallerComponent', () => {
-  let component: RTallerComponent;
-  let fixture: ComponentFixture<RTallerComponent>;
+describe('DireccionComponent', () => {
+  let component: DireccionComponent;
+  let fixture: ComponentFixture<DireccionComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ RTallerComponent ],
+      declarations: [ DireccionComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(RTallerComponent);
+    fixture = TestBed.createComponent(DireccionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

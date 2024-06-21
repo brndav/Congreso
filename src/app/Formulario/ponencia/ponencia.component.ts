@@ -61,10 +61,10 @@ export class PonenciaComponent  implements OnInit {
     this.selectedOption = option.label;
     this.optionsVisible = false;
   }
-
   showPopover(option: any) {
     option.showPopover = true;
   }
+ 
 
   hidePopover() {
     this.options.forEach(opt => opt.showPopover = false);
@@ -81,8 +81,6 @@ export class PonenciaComponent  implements OnInit {
       this.disableAllCheckboxes = false;
     }
   }
-  toggleAccordion(index: number) {
-    this.isAccordionOpen[index] = !this.isAccordionOpen[index];
-  }
+
   
 } 

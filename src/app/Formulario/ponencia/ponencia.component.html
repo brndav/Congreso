@@ -1,12 +1,12 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-<form [formGroup]="loginForm" >
+<div [formGroup]="loginForm" >
   
 
 
     <ion-item>
-      <ion-label position="floating">Titulo de la ponencia<ion-text color="danger">*</ion-text></ion-label>
+      <ion-label position="floating">Titulo <ion-text color="danger">*</ion-text></ion-label>
       <ion-input type="text" placeholder="" formControlName="titulo"></ion-input>
     </ion-item>
     <div class="d-flex align-items-center mb-2">
@@ -120,61 +120,10 @@
     <div class="input-group mb-3">
       <input type="file" class="form-control" id="inputGroupFile02" />
       <label class="input-group-text" for="inputGroupFile02">Upload</label>
-      <ion-button block color="primary" (click)="getOpciones()" type="submit" >
-        Login
-      </ion-button>
+      
     </div>
-  </form>
+  
 
  
-  <form [formGroup]="loginForm" class="accordion accordion-borderless" id="accordionFlushExampleX" >
-    
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="flush-headingOneX">
-        <button
-          class="accordion-button"
-          [ngClass]="{ 'collapsed': !isAccordionOpen[1] }"
-          type="button"
-          (click)="toggleAccordion(1)"
-          [attr.aria-expanded]="isAccordionOpen[1] ? 'true' : 'false'"
-          aria-controls="flush-collapseOneX"
-        >
-          Dirección de Adscripción
-        </button>
-      </h2>
-      <div
-        id="flush-collapseOneX"
-        class="accordion-collapse collapse"
-        [ngClass]="{ show: isAccordionOpen[1] }"
-        aria-labelledby="flush-headingOneX"
-        data-mdb-parent="#accordionFlushExampleX"
-      > 
-       
-          <ion-item>
-            <ion-label position="floating">Dirección <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input type="text" placeholder=""></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">Codigo Postal <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input type="text" placeholder=""></ion-input>
-          </ion-item>
-          <div class="ion-items-container">
-            <ion-item>
-              <ion-label position="floating">País <ion-text color="danger">*</ion-text></ion-label>
-              <ion-input type="text" placeholder=""></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label position="floating">Estado <ion-text color="danger">*</ion-text></ion-label>
-              <ion-input type="text" placeholder=""></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label position="floating">Municipio <ion-text color="danger">*</ion-text></ion-label>
-              <ion-input type="text" placeholder=""></ion-input>
-            </ion-item>
-          </div>
-        </div>
-      </div>     
-      
-  
-</form>
+ 
   

@@ -1,3 +1,4 @@
+
 // Componentes prinicpales 
 import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
@@ -41,15 +42,15 @@ import { DetallePonComponent } from '../ponencias/detalle-pon/detalle-pon.compon
 //Componentes Formulario
 import { ListUsuarioComponent } from '../Formulario/General/list-usuario.component';
 import { PonenciaComponent } from '../Formulario/ponencia/ponencia.component';
-import { RTallerComponent } from '../Formulario/r-taller/r-taller.component';
-import { RCartelesComponent } from '../Formulario/r-carteles/r-carteles.component';
-import { ConferenciaMComponent } from '../Formulario/conferencia-m/conferencia-m.component';
+
 import { CRoboticaComponent } from '../Formulario/c-robotica/c-robotica.component';
 import { CProgramacionComponent } from '../Formulario/c-programacion/c-programacion.component';
+import { DireccionComponent } from '../Formulario/direccion/direccion.component';
 import { ServiciosService } from '../registro/servicio/servicios.service';
 
 // Pie
 import { PieComponent } from '../pie/pie.component';
+
 
 
 
@@ -67,7 +68,8 @@ import { PieComponent } from '../pie/pie.component';
     
   ],
   declarations: [HomePage,EncabezadoComponent,PieComponent,TallerComponent,TallerVirtualComponent,ConcursoPrograComponent,ConcursoRoboticaComponent,MenuComponent,ListadoTalleresComponent,InicioComponent,MenuTallerComponent,ListTallerVirComponent,
-    CartelesComponent,MenuConfeComponent,ListadoConfeComponent,ConfPresenComponent,CartelVistaComponent,ListConfVirComponent,ListaPonenComponent,DetallePonComponent,ConfVirtualComponent,ListUsuarioComponent,PonenciaComponent,CRoboticaComponent,CProgramacionComponent,RTallerComponent,RCartelesComponent,ConferenciaMComponent],
+    CartelesComponent,MenuConfeComponent,ListadoConfeComponent,ConfPresenComponent,CartelVistaComponent,ListConfVirComponent,ListaPonenComponent,DetallePonComponent,ConfVirtualComponent,ListUsuarioComponent,PonenciaComponent,CRoboticaComponent,CProgramacionComponent,
+  DireccionComponent],
 providers:[ServiciosService],
 
   })

@@ -5,8 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { Usuario } from "src/app/interfaces/usuario";
 import { environment } from "src/environments/environment";
 import { Institucion } from "src/app/interfaces/institucion";
-import { Robot } from "src/app/interfaces/robot";
-import { Ponencia } from "src/app/interfaces/ponencias";
+
 
 @Injectable({
     providedIn:'root'
@@ -16,7 +15,7 @@ export class ServiciosService{
     private myApiUrl: string;
     private myApiUrlget: string;
     private myApiUrlgetin: string;
-    private myApiurlgetrobot: string;
+    
     
 
     constructor(private http:HttpClient) {
@@ -24,7 +23,7 @@ export class ServiciosService{
         this.myApiUrl= 'api/usuario'
         this.myApiUrlget= 'api/consulta'
         this.myApiUrlgetin= 'insti/consulta/nom'
-        this.myApiurlgetrobot= 'robot/consulta'
+        
        
     }
 
@@ -63,8 +62,6 @@ private handleError1(error: any) {
 }
 
 
-getRobot(): Observable<Robot[]>{
-  return this.http.get<Robot[]>(this.myAppUrl+this.myApiurlgetrobot)
-}
+
 
 }
