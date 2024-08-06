@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Perfiles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="perfil-container">
+    <h2>Bienvenido, {{ nombreUsuario }}</h2>
+    <!-- Aquí puedes agregar más información del perfil del usuario si es necesario -->
+  </div>
+  
+
+  <!-- Formulario para crear nuevo perfil -->
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Nombre del Perfil</ion-label>
+      <ion-input type="text" [(ngModel)]="nuevoPerfil.perfiles" name="perfiles"></ion-input>
+    </ion-item>
+    <ion-button expand="block" color="primary" (click)="crearPerfil()">Crear Perfil</ion-button>
+  </ion-list>
+
+  <!-- Tabla de perfiles existentes -->
+  <ion-list *ngIf="perfiles.length > 0">
+    <ion-item *ngFor="let perfil of perfiles">
+      <ion-label>{{ perfil.id_perfil }}</ion-label>
+      <ion-label>{{ perfil.perfiles }}</ion-label>
+      <ion-button [color]="perfil.estatus_perfil ? 'success' : 'danger'" (click)="toggleStatus(perfil)">
+        {{ perfil.estatus_perfil ? 'Activo' : 'Inactivo' }}
+      </ion-button>
+      <ion-button color="warning" (click)="editarPerfil(perfil)">Editar</ion-button>
+      <ion-button color="danger" (click)="eliminarPerfil(perfil.id_perfil)">Eliminar</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!-- Formulario para editar perfil -->
+  <ion-card *ngIf="perfilEditando">
+    <ion-card-header>
+      Editar Perfil
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Nombre del Perfil</ion-label>
+        <ion-input type="text" [(ngModel)]="perfilEditando.perfiles" name="perfilesEditar"></ion-input>
+      </ion-item>
+      <ion-button color="primary" (click)="actualizarPerfil()">Guardar Cambios</ion-button>
+      <ion-button color="danger" (click)="cancelarEdicion()">Cancelar</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 export const environment = {
   production: false,
-  endpoint: 'http://localhost:3501/'
+  endpoint: 'http://localhost:300/'
   }
 /*
  * For easier debugging in development mode, you can import the following file

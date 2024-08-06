@@ -1,0 +1,69 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<title>Dropdown Menu</title>
+       
+     <div class="text-center" style="background-color: #2471A3">
+     <nav class="navbar">
+         <ul class="nav-links">
+             <li class="nav-link">
+                 <a href="#">Inicio</a>
+             </li>
+             <li class="nav-link services">
+                 <a href="">Sociedad
+                     <span class="material-icons dropdown-icon">
+                     </span>
+                 </a>
+                 <ul class="drop-down">
+                     <a routerLink="/mesa-direc"><li>Mesa Directiva </li></a>
+                     <a routerLink="/membresia"><li>Membresía</li></a>
+                     <a routerLink="/pagos"><li>Pagos</li></a>
+                     <a routerLink="/generalf"><li>Registro Pago</li></a>
+                  
+                 </ul>
+             </li>
+             <li class="nav-link services">
+                <a href="#">Congresos
+                    <span class="material-icons dropdown-icon">
+                    </span>
+                </a>
+                <ul class="drop-down">
+                    <a routerLink="/congreso-ante"><li >Actual</li></a>
+                    <a routerLink="/congresos"><li>Antiguos</li></a>
+                </ul>
+            </li>
+            
+            <li class="nav-link">
+              <a href="/cursos">  Cursos</a>
+          </li>
+          <li class="nav-link">
+            <a href="#">Contacto</a>
+        </li>
+
+         </ul>
+     </nav>
+ </div>
+
+ <div class="container container-custom">
+    <!-- Agregado la clase container-custom -->
+  
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../../../assets/icon/slider.png" class="d-block w-100" alt="Imagen1">
+            </div>
+            <div class="carousel-item">
+                <img src="../../../assets/icon/slider.png" class="d-block w-100" alt="Imagen2">
+            </div>
+            <div class="carousel-item">
+                <img src="../../../assets/icon/slider.png" class="d-block w-100" alt="Imagen3">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>

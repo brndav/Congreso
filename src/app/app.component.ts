@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { InfoListTallerVirtualService } from './conferencias/info-list-taller-virtual.service';
+import { AuthService } from './login/loginusuario.service';
+
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,10 @@ import { InfoListTallerVirtualService } from './conferencias/info-list-taller-vi
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+
+
+  constructor(private authService: AuthService) {}
+  ngOnInit(): void {
+   
+  }
 }

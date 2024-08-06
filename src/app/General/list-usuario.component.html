@@ -1,0 +1,61 @@
+
+<form [formGroup]="loginForm" >
+  <!-- <ion-item>
+     <ion-label position="floating">id usuario <ion-text color="danger">*</ion-text></ion-label>
+    <ion-input [(ngModel)]="user.idusuario" formControlName="idusuario" type="text"></ion-input>
+  </ion-item>   -->
+
+   <ion-item>
+    <ion-label position="floating">Nombre <ion-text color="danger">*</ion-text></ion-label>
+    <ion-input [(ngModel)]="user.nombre" formControlName="nombre" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating"> Apeliido Paterno <ion-text color="danger">*</ion-text></ion-label>
+    <ion-input [(ngModel)]="user.paterno"required formControlName="paterno" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Apellido Materno <ion-text color="danger">*</ion-text></ion-label>
+    <ion-input [(ngModel)]="user.materno" formControlName="materno" type="text"></ion-input>
+  </ion-item>
+   <ion-item>
+    <ion-label position="floating">Correo <ion-text color="danger">*</ion-text></ion-label>
+    <ion-input [(ngModel)]="user.correo" formControlName="correo" type="email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Contraseña<ion-text color="danger">*</ion-text></ion-label>
+<ion-input [(ngModel)]="user.contrasena" formControlName="contrasena" type="password"></ion-input>
+</ion-item> 
+  <ion-item>
+    <ion-label position="floating">Telefono <ion-text color="danger">*</ion-text></ion-label>
+<ion-input [(ngModel)]="user.telefono" formControlName="telefono" type="text"></ion-input>
+</ion-item> 
+
+<select [(ngModel)]="opcionSeleccionado" (change)="capturar()" class="form-container custom-select"formControlName="id_institucion">
+<option value="0" >Institución <ion-text color="danger">*</ion-text></option>  
+<option *ngFor="let i of instituciones" [value]="i.id_institucion"  >  
+  {{ i.nombreinst }}  
+</option>  
+</select>  
+
+  
+<ion-button block color="primary" (click)="recupera1()" type="submit" [disabled]="loginForm.invalid">
+  Login
+</ion-button>
+
+
+</form>
+
+
+
+
+ 
+
+ 
+  
+     
+   
+  
+
+
+
+

@@ -1,0 +1,121 @@
+.tituloPrin {
+    width: 100%;
+    max-width: 1550px;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2471A3;
+    font-size: 26px;
+    line-height: 1.5;
+    font-family: "Montserrat", sans-serif;
+  }
+  .subtitulo {
+    width: 100%;
+    max-width: 600px;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2471A3;
+    font-size: 26px;
+    line-height: 1.5;
+    font-family: "Montserrat", sans-serif;
+  }
+  .info {
+    width: 100%;
+    max-width: 1550px;
+    height: auto;
+    min-height: 200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #EAEDED;
+    font-size: 22px;
+    line-height: 1.5;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+
+  body, html {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .center-table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    line-height: 1.5;
+    font-family: "Montserrat", sans-serif;
+    
+  }.table-bordered-blue {
+    border-collapse: collapse;
+    width: 80%; /* Ajusta según sea necesario */
+
+  }.table-bordered-blue th,
+  .table-bordered-blue td {
+    border: 5px solid rgb(36, 113, 163);
+    text-align: center;
+    padding: 8px; /* Añade espacio alrededor del contenido de las celdas */
+
+  }.table-bordered-blue th,
+  .table-bordered-blue td {
+    width: 25%; /* Asegura que todas las columnas tengan el mismo tamaño */
+  }
+
+  .presentacion{
+    background-color: #EAEDED;
+    font-size: 22px;
+    line-height: 1.5;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .button {
+    width: 300px;
+    height: 100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2471A3;
+    font-size: 22px;
+    line-height: 1.5;
+    font-family: "Montserrat", sans-serif;
+    color: white; /* Asegurándonos de que el texto sea blanco */
+    border: none; /* Sin borde por defecto */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de mano al pasar por encima */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, margin 0.3s ease;
+  
+    &:hover {
+      background-color: #1A5276;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transform: translateY(-10px) scale(1.1);
+      margin-bottom: 10px;
+    }
+  
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+  
+    &:active {
+      background-color: #1A5276;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5) inset;
+      animation: bounce 0.3s; /* Añadir animación de brincar */
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1); /* Aumentar ligeramente el tamaño */
+    }
+  }

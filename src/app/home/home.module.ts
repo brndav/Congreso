@@ -12,6 +12,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 //encabezado y menu prinicpal
 import { EncabezadoComponent } from '../encabezado/encabezado.component';
 import { MenuComponent } from '../menu/menu.component';
+import { SliderComponent } from '../slider/slider.component';
 
 //Pagina de inicio
 import { InicioComponent } from '../inicio/inicio.component';
@@ -40,16 +41,20 @@ import { ConfVirtualComponent } from '../conferencias/conf-virtual/conf-virtual.
 import { DetallePonComponent } from '../ponencias/detalle-pon/detalle-pon.component';
 
 //Componentes Formulario
-import { ListUsuarioComponent } from '../Formulario/General/list-usuario.component';
-import { PonenciaComponent } from '../Formulario/ponencia/ponencia.component';
-
-import { CRoboticaComponent } from '../Formulario/c-robotica/c-robotica.component';
-import { CProgramacionComponent } from '../Formulario/c-programacion/c-programacion.component';
-import { DireccionComponent } from '../Formulario/direccion/direccion.component';
+import { ListUsuarioComponent } from '../General/list-usuario.component';
 import { ServiciosService } from '../registro/servicio/servicios.service';
 
 // Pie
 import { PieComponent } from '../pie/pie.component';
+import { PruebassComponent } from '../pruebass/pruebass.component';
+import { LoginComponent } from '../login/login/login.component';
+import { RegistrousuarioComponent } from '../login/registrousuario/registrousuario.component';
+import { PerfilComponent } from '../login/perfil/perfil.component';
+import { RegistroasesorComponent } from '../administrador/registroasesor/registroasesor.component';
+import { PonenciaComponent } from '../registroPonencia/ponencia/ponencia.component';
+
+
+
 
 
 
@@ -68,8 +73,9 @@ import { PieComponent } from '../pie/pie.component';
     
   ],
   declarations: [HomePage,EncabezadoComponent,PieComponent,TallerComponent,TallerVirtualComponent,ConcursoPrograComponent,ConcursoRoboticaComponent,MenuComponent,ListadoTalleresComponent,InicioComponent,MenuTallerComponent,ListTallerVirComponent,
-    CartelesComponent,MenuConfeComponent,ListadoConfeComponent,ConfPresenComponent,CartelVistaComponent,ListConfVirComponent,ListaPonenComponent,DetallePonComponent,ConfVirtualComponent,ListUsuarioComponent,PonenciaComponent,CRoboticaComponent,CProgramacionComponent,
-  DireccionComponent],
+    CartelesComponent,MenuConfeComponent,ListadoConfeComponent,ConfPresenComponent,CartelVistaComponent,ListConfVirComponent,ListaPonenComponent,DetallePonComponent,ConfVirtualComponent,
+    ListUsuarioComponent,SliderComponent,PruebassComponent,
+    LoginComponent,RegistrousuarioComponent,PerfilComponent, RegistroasesorComponent,PonenciaComponent],
 providers:[ServiciosService],
 
   })

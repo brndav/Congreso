@@ -1,0 +1,148 @@
+<app-encabezado></app-encabezado>
+<app-menu></app-menu>
+
+<ion-content [fullscreen]="true">
+  <div class="Concurso de programacion">
+    <div class="container">
+      <div class="titulo fluid-row rounded shadow-lg mt-3 mb-5" role="alert">
+        <div class="container-fluid-row">
+          <p class="text-center text-white">
+            <strong> Registro  Actividad </strong><br>
+          </p>
+        </div>
+      </div>
+
+<form [formGroup]="loginForm" >  
+
+  <ion-item>
+    <ion-label position="floating">Titulo <ion-text color="danger">*</ion-text></ion-label>
+    <ion-input  [(ngModel)]="form.titulo" formControlName="titulo" type="text"></ion-input>
+  </ion-item>
+
+  <legend class="text col-sm-6 texts">Seleccione una forma de presentación:</legend>
+
+
+  <select [(ngModel)]="opcionSeleccionado" (change)="capturar()" formControlName="id_forma">    
+    <option *ngFor="let presentation of presen" [value]="presentation.id_forma">    
+      {{ presentation.descripcion }}    
+    </option>    
+  </select> 
+<p></p>
+<legend class="text col-sm-6 texts">Seleccione una modalidad de exponer:</legend>
+<select [(ngModel)]="opcionSeleccionado2" (change)="capturar2()" formControlName="id_modalidad">
+<option *ngFor="let exposicion of expo" [value]="exposicion.id_modalidad">
+  {{ exposicion.descripcion }}
+</option>
+</select>
+<p></p>
+
+<label for="areas">Seleccione una área:</label>
+<select id="areas" [(ngModel)]="selectedArea" (change)="capturar3()" formControlName="id_linea_eje">
+<option value="0">Seleccione una área</option>
+<option *ngFor="let area of areas" [value]="area.id_linea">{{ area.descripcion_linea }}</option>
+</select>
+<p></p>
+
+<label for="ejes">Seleccione una categoría:</label>
+<select id="ejes" [(ngModel)]="selectedEje" (change)="capturar4()" formControlName="id_linea_eje">
+<option value="0">Seleccione una categoría</option>
+<option *ngFor="let descripcion of descripcionesEje" [value]="descripcion.id_eje">{{ descripcion.descripcion_eje }}</option>
+</select>
+
+
+
+
+  <p></p>
+  <div class="mb-3">
+    <legend class="text col-sm-2 pt-0">Resumen:</legend>
+    <textarea [(ngModel)]="form.resumen" class= "form-control custom-textarea" placeholder="(220 palabras)" rows="3" formControlName="resumen"></textarea>
+  </div>
+  <div class="mb-3">
+    <legend class="text col-sm-2 pt-0">Abstract:</legend>
+    <textarea [(ngModel)]="form.abstract" class="form-control custom-textarea" placeholder="(220 palabras)" rows="3" formControlName="abstract"></textarea>
+  </div>
+  <div class="mb-3">
+    <legend class="text col-sm-3 pt-0">Reseña Curricular:</legend>
+    <textarea  [(ngModel)]="form.resena_curricular" class="form-control custom-textarea" placeholder="(220 palabras)" rows="3" formControlName="resena_curricular"></textarea>
+  </div>     
+   <!-- <ion-item>
+    <ion-label position="floating">Foto <ion-text color="danger">*</ion-text></ion-label>
+    <ion-input  [(ngModel)]="form.foto" formControlName="foto" type="text"></ion-input>
+  </ion-item>    -->
+
+ 
+   <legend class="text col-sm-2 pt-0">Subir foto:</legend>
+  <div class="input-group mb-3">
+    <input type="file" [(ngModel)]="form.foto" class="form-control" formControlName="foto" id="inputGroupFile02" />
+    <label class="input-group-text" for="inputGroupFile02">Upload</label>
+     
+   </div>
+   <p></p>
+   <ion-button block color="primary" (click)="Obtener()" type="submit" [disabled]="loginForm.invalid">
+    Gurdar
+  </ion-button>
+  
+   <div class="d-flex align-items-center mb-2">
+    <ion-button (click)="toggleTables()">Agregar Autor</ion-button>
+  </div>
+   
+  <div *ngIf="showTables">
+    <div class="d-flex align-items-center mb-2">
+      <label for="actionButton" class="text me label-lg"><strong>Seleccione el usuario </strong></label>
+    </div>
+    <div class="table-container">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col" class="table-font-size1">Nombre</th>
+            <th scope="col" class="table-font-size1">Apellido P</th>
+            <th scope="col" class="table-font-size1">Apellido M</th>
+            <th scope="col" class="table-font-size1"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of persona" class="table">
+            <td class="table-font-size text-nowrap">{{item.nombre}}</td>
+            <td class="table-font-size text-nowrap">{{item.paterno}}</td>
+            <td class="table-font-size text-nowrap">{{item.materno}}</td>
+            <td class="table-font-size text-nowrap">
+              <button type="button" class="btn btn-success btn-small" (click)="agregarAutor(item.idusuario)">
+                Agregar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div class="d-flex align-items-center mb-2">
+      <label for="actionButton" class="text me label-lg"><strong>Autores</strong></label>
+    </div>
+    <table class="table table-hover">
+      <thead >
+        <tr>
+          <th scope="col" class="table-font-size1 ">Nombre</th>
+          <th scope="col" class="table-font-size1">Apellido P</th>
+          <th scope="col" class="table-font-size1">Apellido M</th>
+          <th scope="col" class="table-font-size1"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of detallesaut" class="table-primary">
+          <td class="table-font-size text-nowrap">{{item.nombre}}</td>
+          <td class="table-font-size text-nowrap">{{item.paterno}}</td>
+          <td class="table-font-size text-nowrap">{{item.materno}}</td>
+          <td class="table-font-size text-nowrap">
+            <button type="button" class="btn btn-danger btn-small"
+             (click)="eliminarAutor(item.id_autores)">
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+
+ 
+</form>

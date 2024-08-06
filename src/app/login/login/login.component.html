@@ -1,0 +1,53 @@
+<app-encabezado></app-encabezado>
+<app-menu></app-menu>
+
+<ion-content [fullscreen]="true">
+  <div class="Concurso de programacion">
+    <div class="container">
+      <div class="titulo fluid-row rounded shadow-lg mt-3 mb-5" role="alert">
+        <div class="container-fluid-row">
+          <p class="text-center text-white">
+            <strong> INICIAR SESIÓN </strong><br>
+          </p>
+        </div>
+      </div>
+
+      <div class="container mt-5 custom-container">
+        <div class="row justify-content-center">
+          <div class="col-md-6 p-4">
+            <!-- Contenido del contenedor -->
+  
+            <div id="img" style="display: flex; justify-content: center;">
+              <img src="../../assets/icon/login.jpeg" width="350" height="300" alt="con">
+            </div>
+
+            <form (ngSubmit)="onLogin()">
+              <div class="form-group">
+                <label for="correo" class="presentacion font-weight-bold">Correo Electrónico</label>
+                <input type="email" class="form-control" id="correo" name="correo" [(ngModel)]="correo" required>
+              </div>
+              <div class="form-group">
+                <label for="contrasena" class="presentacion font-weight-bold">Contraseña</label>
+                <input type="password" class="form-control" id="contrasena" name="contrasena" [(ngModel)]="contrasena" required>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col">
+                  <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
+                </div>
+                <div class="col">
+                  <ion-button routerLink="/registrousuario" block color="warning" type="button">
+                    Registrar
+                  </ion-button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-pie></app-pie>
+</ion-content>
+
+  

@@ -1,0 +1,16 @@
+<select id="areas" [(ngModel)]="selectedArea" (change)="capturar()">
+
+  <option value="0">Seleccione una area</option>
+
+  <option *ngFor="let area of areas" [value]="area.id_linea">{{ area.descripcion_linea }}</option>
+
+</select>
+
+
+<select [(ngModel)]="selectedEje">
+  
+  <option value="0">Seleccione una categoria </option>
+
+  <option *ngFor="let descripcion of descripcionesEje" [value]="descripcion">{{ descripcion }}</option>
+
+</select>

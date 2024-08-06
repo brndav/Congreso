@@ -1,4 +1,3 @@
-import { MenuTallerComponent } from './../taller/menu-taller/menu-taller.component';
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -10,10 +9,7 @@ const routes: Routes = [
     path: '',
     component: HomePage
   }, 
-  {
-    path: 'Taller',
-    component: MenuTallerComponent
-  },
+  
   
 ];
 

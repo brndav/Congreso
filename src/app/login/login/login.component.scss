@@ -1,0 +1,90 @@
+.custom-container {
+  max-width: 1550px; /* Establece el ancho máximo del contenedor */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  background-color: #ffffff; /* Fondo blanco */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 16px 24px rgba(0, 0, 0, 0.1); /* Sombra */
+  padding: 20px; /* Espaciado interno */
+  height: 800px;
+}
+  
+  input {
+    margin: 10px 0;
+    padding: 20px;
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    padding: -30px;
+    border: 3px solid #2E86C1  ;
+    width: 0 auto;
+    height: 60px;
+    font-size: 16px;
+    display: flex;
+    align-items:center ;
+  }
+  
+ 
+    button {
+      width: 200px;
+      height: 60px;
+      margin: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #2471A3;
+      font-size: 18px;
+      line-height: 1.5;
+      font-family: "Montserrat", sans-serif;
+      color: white; /* Asegurándonos de que el texto sea blanco */
+      border: none; /* Sin borde por defecto */
+      border-radius: 5px; /* Bordes redondeados */
+      cursor: pointer; /* Cursor de mano al pasar por encima */
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, margin 0.3s ease;
+    
+  }
+  
+  button:hover {
+    background-color: #1A5276;
+  }
+  .titulo{
+    width: 1550px;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#2471A3;
+    font-size: 26px;
+    line-height: 1.5;
+    font-family: "Montserrat", sans-serif;;
+} 
+
+
+ion-button[type="button"] {
+  width: 200px;
+  height: 60px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFA500; /* Color naranja */
+  font-size: 15px;
+  line-height: 1.5;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, margin 0.3s ease;
+}
+
+/* Cambio de color al pasar el mouse */
+ion-button[type="button"]:hover {
+  background-color: #FF8C00; /* Color naranja más oscuro al pasar el mouse */
+}
+.presentacion {
+  font-size: 18px;
+  line-height: 1.5;
+  font-family: "Montserrat", sans-serif;
+}

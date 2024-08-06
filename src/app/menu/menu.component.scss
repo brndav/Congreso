@@ -86,3 +86,32 @@ a {
   border-radius: 1px; /* Bordes redondeados para el contenido del carrusel */
   overflow: hidden; /* Asegura que las esquinas redondeadas se vean correctamente */
 }
+.dropdown-icon {
+
+  float: right;
+
+  transform: scale(0.6); /* reduce el tamaño del icono en un 20% */
+
+}
+.avatar-container {
+  width: 30px; /* Ancho del avatar */
+  height: 30px; /* Alto del avatar */
+  overflow: hidden;  
+  margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
+
+.disabled-link {
+  pointer-events: none;
+  color: #666666; // Puedes ajustar el color para que se vea deshabilitado
+  cursor: default;
+}
+.avatar-wrapper {
+  display: flex;
+  align-items: center;
+}
+.avatar-text {
+  text-decoration: none;
+  color: #F2F3F4; /* Color del texto */
+  font-weight: 600; /* Puedes ajustar el peso de la fuente si es necesario */
+  cursor: pointer; /* Cursor para el enlace */
+}
