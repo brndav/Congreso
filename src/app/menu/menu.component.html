@@ -26,20 +26,22 @@
              </li>
              
 
-             <li class="nav-link services">
-              <a href="#">Registro
-                <span class="material-icons dropdown-icon"></span>
+        <!-- Menú de Registro -->
+        <li class="nav-link services">
+          <a href="#">Registro
+              <span class="material-icons dropdown-icon"></span>
+          </a>
+          <ul class="drop-down">
+              <a routerLink="/registrousuario">
+                  <li>Datos Generales</li>
               </a>
-              <ul class="drop-down">
-                <a routerLink="/registrousuario"><li>Datos Generales</li></a>
-                <ng-container *ngFor="let perfil of perfiles">
-                  <a [routerLink]="['/registroAct']">
-                    <li>{{ perfil.perfiles }}</li>
+              <ng-container *ngFor="let perfil of perfiles">
+                  <a [routerLink]="['/registroAct']" [ngClass]="{'disabled-link': !isLoggedIn}">
+                      <li>{{ perfil.perfiles }}</li>
                   </a>
-                </ng-container>
-              </ul>
-            </li>
-
+              </ng-container>
+          </ul>
+      </li> 
 
 
              <li class="nav-link">
@@ -55,11 +57,13 @@
             <!-- Administrador -->
               <li class="nav-link services" *ngIf="isLoggedIn">
                   <a routerLink="/login" class="avatar-text">
-                    <li>Administrador</li>
+                    <li>Administrador Vistas</li>
                   </a>
                   <span class="material-icons dropdown-icon"></span>
                   <ul class="drop-down">      
                     <li><a routerLink="/perfiles">Perfiles</a></li>
+                    <li><a routerLink="/lineas">Lineas</a></li>
+                    <li><a routerLink="/ejes">Ejes</a></li>
                     <li><a (click)="logout()">cerrar sesion</a></li>
                   </ul>
               

@@ -48,7 +48,7 @@ export class ServiciosService{
         this.myApiUrllin= 'linea/consulta/descrip'
         this.myApiUrllinej= 'lineje/filtrar'
         this.myApiUrleje= 'eje/consulta/descrip'
-        this.myApiUrlact= 'activ/crear'
+        this.myApiUrlact= 'activ/filtrar'
 
         this.myApiUrlautor= 'autor/crear'
         this.myApiUrlgetaut= 'autor/detalles'
@@ -87,6 +87,11 @@ private handleError1(error: any) {
     return this.http.get<Usuario[]>(this.myAppUrl + this.myApiUrlget)
       
   }
+
+
+
+
+
   getInstitucion(): Observable<Institucion[]> {
     return this.http.get<Institucion[]>(this.myAppUrl+this.myApiUrlgetin)
    
@@ -94,8 +99,10 @@ private handleError1(error: any) {
 getActividad(): Observable<Actividades[]>{
   return this.http.get<Actividades[]>(this.myAppUrl+this.myApiUrlact)
 }
-registro(): Observable <any>{
-  return this.http.post(this.myAppUrl + this.myApiUrlreg,{
+registro(form:Registro): Observable <any>{
+  console.log (form);
+  return this.http.post(this.myAppUrl + this.myApiUrlreg,form,
+   {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     }).pipe(
       catchError(this.handleError)
@@ -130,6 +137,6 @@ getAutor(): Observable<Autor[]> {
   return this.http.get<Autor[]>(this.myAppUrl + this.myApiUrlgetaut)
 }
 deleteAutor(id_autores: number): Observable<any> {
-  return this.http.delete<any>(`${this.myAppUrl}${this.myApiUrldeletau}${id_autores}`);
+  return this.http.delete<any>(`${this.myAppUrl}${this.myApiUrldeletau}${id_autores}`)
 }
 }

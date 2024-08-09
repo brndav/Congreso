@@ -9,6 +9,7 @@ import { ddI } from 'src/app/interfaces/ddI';
 import { Linea } from 'src/app/interfaces/linea';
 import { Usuario } from 'src/app/interfaces/usuario';
 import {Autor} from 'src/app/interfaces/autores';
+import { AuthService} from 'src/app/login/loginusuario.service';
 
 @Component({
   selector: 'app-ponencia',
@@ -60,11 +61,15 @@ export class PonenciaComponent  implements OnInit {
   
    
 
-  constructor(private servicio: ServiciosService, private ruta:ActivatedRoute) { 
+  constructor(private servicio: ServiciosService, private ruta:ActivatedRoute,private authService: AuthService ) { 
 
   }
   ngOnInit(): void {
-         
+    
+    //obtener usuario 
+    const userId = this.authService.getUserId();
+    console.log('User ID on component initialization:', userId); // Verifica el userId al inicializar el componente
+
       this.servicio.getPresentacion().subscribe((response) =>{
       this.presen=response;
     }); 
@@ -75,7 +80,7 @@ export class PonenciaComponent  implements OnInit {
     
     this.cargarLineas();
 
- this.verUsuario();
+/*  this.verUsuario(); */
  this.capturar5();
     
   }
@@ -93,9 +98,10 @@ export class PonenciaComponent  implements OnInit {
 
   capturar(){
     const presentacionSeleccionada = this.presen.find((i) => i.id_forma === +this.opcionSeleccionado);
-
     if (presentacionSeleccionada){
       this.verSeleccion= presentacionSeleccionada.id_forma;
+      console.log(this.id_forma);
+     
     }
   }
   capturar2(){
@@ -103,8 +109,10 @@ export class PonenciaComponent  implements OnInit {
 
     if (exposicionSeleccionada){
       this.verSeleccion2= exposicionSeleccionada.id_modalidad;
+      
     }    
   }
+
   capturar3(): void {
     this.servicio.getidLinea(this.selectedArea).subscribe((response) => {
       this.datos = response as ddI[];
@@ -114,12 +122,12 @@ export class PonenciaComponent  implements OnInit {
       }));
     });
   }
+
   capturar4(): void{
     const idLineaEjeEncontrado = this.datos.find(dato => dato.eje.id_eje === +this.selectedEje);
+    console.log("idLineaEjeEncontrado"+ idLineaEjeEncontrado);
         if (idLineaEjeEncontrado) {
           this.verSeleccion3= idLineaEjeEncontrado.id_linea_eje
-          
-  
   }
   }
   toggleTables() {
@@ -129,8 +137,9 @@ verUsuario(){
   this.servicio.getUsuario(). subscribe((data) => {
     this.persona = data
   });
-}
+} 
 
+  
 agregarAutor(idusuario:number):void {
   this. servicio.agregarAutor(idusuario).subscribe((response) => { 
     console.log('Autor agregado:', response);
@@ -154,7 +163,16 @@ capturar5(): void {
     }));
   });
 }
-  
+obtenerIdUsuario(): void {
+  const userId = this.authService.getUserId();
+  if (userId !== null) {
+    this.id_usuario = userId;
+    this.form.id_usuario = userId;
+    console.log('ID de usuario obtenido:', this.id_usuario);
+  } else {
+    console.error('No se pudo obtener el ID del usuario.');
+  }
+}
     
  form: Registro={
   id_registros:0,
@@ -185,34 +203,44 @@ capturar5(): void {
     
 
     Obtener(){
-      this.id_registros=parseInt(this.loginForm.value.id_registros+'',10)
-      this.titulo=this.loginForm.value.titulo+''
-      this.resumen=this.loginForm.value.resumen+''
-      this.abstract=this.loginForm.value.abstract+''
-      this.resena_curricular=this.loginForm.value.resena_curricular+''
-      this.foto=this.loginForm.value.foto+''
-      this.id_usuario=parseInt(this.loginForm.value.id_usuario+'',10)
-      this.id_actividad_cat=parseInt(this.loginForm.value.id_actividad_cat+'',10)
+      // this.id_registros=parseInt(this.loginForm.value.id_registros +'', 10);
+      this.titulo=this.loginForm.value.titulo + '' ;
+      this.resumen=this.loginForm.value.resumen + '' ;
+      this.abstract=this.loginForm.value.abstract +'' ;
+      this.resena_curricular=this.loginForm.value.resena_curricular + '' ;
+      // this.foto=this.loginForm.value.foto + '' ; 
+      this.foto= 'f' ; 
+      this.id_usuario=parseInt(this.loginForm.value.id_usuario+'',10); 
+      //this.id_usuario=4; 
+      this.id_actividad_cat=parseInt(this.loginForm.value.id_actividad_cat + '', 10);
       this.id_linea_eje=this.verSeleccion3;
       this.id_forma=this.verSeleccion;
       this.id_modalidad=this.verSeleccion2;
       
 
-      this.form.id_registros=this.id_registros
-      this.form.titulo=this.titulo
-      this.form.resumen=this.resumen
-      this.form.abstract=this.abstract
-      this.form.resena_curricular=this.resena_curricular
-      this.form.foto=this.foto
-      this.form.id_usuario=this.id_usuario
-      this.form.id_actividad_cat=this.id_actividad_cat
-      this.form.id_linea_eje=this.id_linea_eje
-      this.form.id_forma=this.id_forma
+      // this.form.id_registros=this.id_registros;
+      this.form.titulo=this.titulo;
+      this.form.resumen=this.resumen;
+      this.form.abstract=this.abstract;
+      this.form.resena_curricular=this.resena_curricular;
+      this.form.foto=this.foto;
+      this.form.id_usuario=this.id_usuario;
+      // this.form.id_actividad_cat=this.id_actividad_cat;
+      this.form.id_actividad_cat=1;
+      this.form.id_linea_eje=this.id_linea_eje;
+      //this.form.id_linea_eje=1;
+      this.form.id_forma=this.id_forma;
+     // this.form.id_forma=1;
+      //this.form.id_modalidad=1;
       this.form.id_modalidad=this.id_modalidad;
-    
 
+ 
+
+      
       console.log(this.form);
-      this.servicio.registro().subscribe(data=>{
+
+      this.servicio.registro(this.form).subscribe(data=>{
+        console.log("hola");
         console.log(data)
         console.log('datos insertados correctamente')
       },
@@ -225,5 +253,4 @@ capturar5(): void {
 
 
    
- 
 }

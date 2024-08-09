@@ -1,0 +1,60 @@
+<app-encabezado></app-encabezado>
+
+<ion-content [fullscreen]="true">
+
+  <div class="Vista Linea">
+    <div class="container">
+      <div class="titulo fluid-row rounded shadow-lg mt-3 mb-5" role="alert">
+        <div class="container-fluid-row">
+          <p class="text-center text-white">
+            <strong> EJES</strong><br>
+          </p>
+        </div>
+      </div>
+  
+
+
+  <div class="eje-container">
+    <h2>Bienvenido, {{ nombreUsuario }}</h2>
+  </div>
+  
+  <!-- Formulario para crear nuevo perfil -->
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Nombre del Eje</ion-label>
+      <ion-input type="text" [(ngModel)]="nuevoEje.descripcion_eje" name="ejes"></ion-input>
+    </ion-item>
+    <ion-button expand="block" color="primary" (click)="crearEje()">Crear Eje</ion-button>
+  </ion-list>
+
+  <!-- Tabla de perfiles existentes -->
+  <ion-list *ngIf="ejes.length > 0">
+    <ion-item *ngFor="let eje of ejes">
+      <ion-label>{{ eje.id_eje }}</ion-label>
+      <ion-label>{{ eje.descripcion_eje }}</ion-label>
+      <ion-button color="warning" (click)="editarEje(eje)">Editar</ion-button>
+      <ion-button color="danger" (click)="eliminarEje(eje.id_eje)">Eliminar</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!-- Formulario para editar perfil -->
+  <ion-card *ngIf="ejeEditando">
+    <ion-card-header>
+      Editar Eje
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Nombre de la Linea</ion-label>
+        <ion-input type="text" [(ngModel)]="ejeEditando.descripcion_eje" name="ejesEditar"></ion-input>
+      </ion-item>
+      <ion-button color="primary" (click)="actualizarEje()">Guardar Cambios</ion-button>
+      <ion-button color="danger" (click)="cancelarEdicion()">Cancelar</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+</div>
+</div>
+
+<app-pie></app-pie>
+</ion-content>
+

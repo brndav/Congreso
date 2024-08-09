@@ -46,12 +46,12 @@ export class ListUsuarioComponent  implements OnInit {
   
     ngOnInit(): void {
      
-      this.servicio.getInstitucion().subscribe((response: Institucion[]) => {
+    /*   this.servicio.getInstitucion().subscribe((response: Institucion[]) => {
   
         this.instituciones = response;
   
       });
-  
+   */
     }
   
   
@@ -122,7 +122,7 @@ export class ListUsuarioComponent  implements OnInit {
     console.log(this.user);
  
     this.loading=true;
-
+/* 
     this.servicio.singIn(this.user).subscribe(data=>{
       console.log(data)
       console.log('datos insertados correctamente')
@@ -136,8 +136,8 @@ export class ListUsuarioComponent  implements OnInit {
       console.error('Error al añadir usuario:', error);
       this.toastr.error('Hubo un error al añadir el usuario');
       return;
-    }
-  )
+    } */
+ // )
 }
    
 }

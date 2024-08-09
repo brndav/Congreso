@@ -13,6 +13,7 @@ import { ddI } from '../interfaces/ddI';
   styleUrls: ['./pruebass.component.scss'],
 })
 export class PruebassComponent  implements OnInit {
+
   areas: Linea[]= [];
   selectedArea: number=0;
   verSeleccion: number = 0;

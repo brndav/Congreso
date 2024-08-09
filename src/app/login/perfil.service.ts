@@ -25,7 +25,7 @@ export class PerfilService {
   eliminarPerfil(idPerfil: number) {
     return this.http.delete<any>(`${this.baseUrl}/perf/eliminar/${idPerfil}`);
   }
-  assignProfile(userId: number, perfilId: number) {
-    return this.http.post<any>(`${this.baseUrl}/userp/usuario_perfil`, { idusuario: userId, id_perfil: perfilId });
+  assignProfile(registroId: number, perfilId: number) {
+    return this.http.post<any>(`${this.baseUrl}/registroperf/registro_perfil`, { id_registros: registroId, id_perfil: perfilId });
   }
 }

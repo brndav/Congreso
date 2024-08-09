@@ -50,8 +50,9 @@ import { PruebassComponent } from '../pruebass/pruebass.component';
 import { LoginComponent } from '../login/login/login.component';
 import { RegistrousuarioComponent } from '../login/registrousuario/registrousuario.component';
 import { PerfilComponent } from '../login/perfil/perfil.component';
-import { RegistroasesorComponent } from '../administrador/registroasesor/registroasesor.component';
 import { PonenciaComponent } from '../registroPonencia/ponencia/ponencia.component';
+import { LineaComponent } from '../administrador/linea/linea.component';
+import { EjeComponent } from '../administrador/eje/eje.component';
 
 
 
@@ -75,7 +76,7 @@ import { PonenciaComponent } from '../registroPonencia/ponencia/ponencia.compone
   declarations: [HomePage,EncabezadoComponent,PieComponent,TallerComponent,TallerVirtualComponent,ConcursoPrograComponent,ConcursoRoboticaComponent,MenuComponent,ListadoTalleresComponent,InicioComponent,MenuTallerComponent,ListTallerVirComponent,
     CartelesComponent,MenuConfeComponent,ListadoConfeComponent,ConfPresenComponent,CartelVistaComponent,ListConfVirComponent,ListaPonenComponent,DetallePonComponent,ConfVirtualComponent,
     ListUsuarioComponent,SliderComponent,PruebassComponent,
-    LoginComponent,RegistrousuarioComponent,PerfilComponent, RegistroasesorComponent,PonenciaComponent],
+    LoginComponent,RegistrousuarioComponent,PerfilComponent,PonenciaComponent,LineaComponent,EjeComponent],
 providers:[ServiciosService],
 
   })

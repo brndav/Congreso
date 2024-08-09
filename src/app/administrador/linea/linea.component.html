@@ -1,0 +1,60 @@
+<app-encabezado></app-encabezado>
+
+<ion-content [fullscreen]="true">
+
+  <div class="Vista Linea">
+    <div class="container">
+      <div class="titulo fluid-row rounded shadow-lg mt-3 mb-5" role="alert">
+        <div class="container-fluid-row">
+          <p class="text-center text-white">
+            <strong> LINEA </strong><br>
+          </p>
+        </div>
+      </div>
+  
+   
+
+
+  <div class="linea-container">
+    <h2>Bienvenido, {{ nombreUsuario }}</h2>
+  </div>
+  
+  <!-- Formulario para crear nuevo perfil -->
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Nombre de la Linea</ion-label>
+      <ion-input type="text" [(ngModel)]="nuevaLinea.descripcion_linea" name="lineas"></ion-input>
+    </ion-item>
+    <ion-button expand="block" color="primary" (click)="crearLinea()">Crear Linea</ion-button>
+  </ion-list>
+
+  <!-- Tabla de perfiles existentes -->
+  <ion-list *ngIf="lineas.length > 0">
+    <ion-item *ngFor="let linea of lineas">
+      <ion-label>{{ linea.id_linea }}</ion-label>
+      <ion-label>{{ linea.descripcion_linea }}</ion-label>
+      <ion-button color="warning" (click)="editarLinea(linea)">Editar</ion-button>
+      <ion-button color="danger" (click)="eliminarLinea(linea.id_linea)">Eliminar</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!-- Formulario para editar perfil -->
+  <ion-card *ngIf="lineaEditando">
+    <ion-card-header>
+      Editar Linea
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Nombre de la Linea</ion-label>
+        <ion-input type="text" [(ngModel)]="lineaEditando.descripcion_linea" name="lineasEditar"></ion-input>
+      </ion-item>
+      <ion-button color="primary" (click)="actualizarLinea()">Guardar Cambios</ion-button>
+      <ion-button color="danger" (click)="cancelarEdicion()">Cancelar</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+</div>
+</div>
+
+<app-pie></app-pie>
+</ion-content>

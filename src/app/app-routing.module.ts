@@ -44,12 +44,13 @@ import { ListUsuarioComponent } from './General/list-usuario.component';
 
 //vistas administrador 
 import { PerfilComponent } from './login/perfil/perfil.component';
-
+import { LineaComponent } from './administrador/linea/linea.component';
 //pruebas
 import { PruebassComponent } from './pruebass/pruebass.component';
 // guar para retringir  vistas 
 import { AuthGuard } from './auth.guard';
 import { PonenciaComponent } from './registroPonencia/ponencia/ponencia.component';
+import { EjeComponent } from './administrador/eje/eje.component';
 
 const routes: Routes = [
   {
@@ -153,11 +154,21 @@ const routes: Routes = [
   path:'registroAct',
   component:PonenciaComponent
 },
-
+{
+//pruebas
+  path:'pruebas',
+  component:PruebassComponent
+},
 
 // vistas administrador 
 { path: 'perfiles', component: PerfilComponent, canActivate: [AuthGuard] },
-  
+{path:'lineas',component:LineaComponent, canActivate: [AuthGuard]} ,
+{path:'ejes',component:EjeComponent, canActivate: [AuthGuard]} ,
+
+
+
+
+
      // sociedad 
   
   {

@@ -22,8 +22,10 @@ export class AuthService {
     return this.http.post<any>(`${this.apiUrl}/api/login`, { correo, contrasena })
     .pipe(
       tap(res => {
-        // Almacena el token en localStorage al iniciar sesión exitosamente
+      // Almacena el token en localStorage al iniciar sesión exitosamente
+      console.log('Login response:', res); 
         localStorage.setItem(this.tokenKey, res.token);
+        console.log('Stored token after login:', localStorage.getItem(this.tokenKey));
         this.isLoggedInSubject.next(true);
       })
     );
@@ -36,6 +38,7 @@ export class AuthService {
   }
 
   isLoggedIn(): Observable<boolean> {
+    const token = localStorage.getItem(this.tokenKey);
     return this.isLoggedInSubject.asObservable();
   }
 
@@ -46,14 +49,19 @@ export class AuthService {
   getUserId(): number | null {
     const token = this.getToken();
     if (!token) {
+      console.error('No token found');
       return null;
     }
-
+  
     try {
-      // Decodifica el JWT manualmente
       const payload = token.split('.')[1];
       const decodedPayload = JSON.parse(atob(payload));
-      return decodedPayload.idusuario; // Extrae el idusuario del token
+      if (decodedPayload && decodedPayload.idusuario) {
+        return decodedPayload.idusuario;
+      } else {
+        console.error('idusuario not found in token payload');
+        return null;
+      }
     } catch (error) {
       console.error('Error decoding token:', error);
       return null;
